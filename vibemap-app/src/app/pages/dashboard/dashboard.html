@@ -4,11 +4,11 @@
         <h1>Build your VibeMap profile</h1>
         <p>Create guides, add places, and share your recommendations.</p>
     </section>
+
     <section class="section">
         <h2>Edit Creator Profile</h2>
 
         <form class="form-card">
-
             <label>Name</label>
             <input type="text" placeholder="Your name">
 
@@ -33,24 +33,23 @@
             <label>Profile Photo</label>
             <input type="file">
 
-            <button type="button">
-                Save Profile
-            </button>
-
+            <button type="button">Save Profile</button>
         </form>
     </section>
+
     <section class="section">
         <h2>Create New Guide</h2>
 
         <form class="form-card">
             <label>Guide Title</label>
-            <input type="text" placeholder="Best Date Nights in Phoenix">
+            <input type="text" placeholder="Best Date Nights in Phoenix" [(ngModel)]="guideTitle" name="guideTitle">
 
             <label>Description</label>
-            <textarea placeholder="My favorite spots for a fun night out."></textarea>
+            <textarea placeholder="My favorite spots for a fun night out." [(ngModel)]="guideDescription"
+                name="guideDescription"></textarea>
 
             <label>Guide Type</label>
-            <select>
+            <select [(ngModel)]="guideType" name="guideType">
                 <option>Ranked Guide</option>
                 <option>Unranked Guide</option>
             </select>
@@ -58,7 +57,7 @@
             <label>Cover Image</label>
             <input type="file">
 
-            <button type="button">Create Guide</button>
+            <button type="button" (click)="createGuide()">Create Guide</button>
         </form>
     </section>
 
@@ -70,18 +69,23 @@
 
             <input type="text" placeholder="Search restaurant, bar, coffee shop, activity...">
 
+            @for (result of fakePlaceResults; track result.name) {
             <div class="place-result">
-                <h3>Ghost Ranch</h3>
-                <p>Tempe, AZ • Restaurant • 4.6 ★</p>
+                <h3>{{ result.name }}</h3>
+                <p>{{ result.location }} • {{ result.type }} • {{ result.rating }} ★</p>
 
-                <button type="button">
+                <button type="button" (click)="selectPlace(result.name)">
                     Select Place
                 </button>
             </div>
+            }
+
+            <p class="guide-meta">
+                Selected Place: {{ selectedPlaceName }}
+            </p>
         </div>
 
         <form class="form-card">
-
             <label>Add to Guide</label>
 
             <select>
@@ -90,42 +94,50 @@
             </select>
 
             <label>Favorite Dish</label>
-            <input type="text" placeholder="Short Rib Tacos">
+            <input type="text" placeholder="Short Rib Tacos" [(ngModel)]="favoriteDish" name="favoriteDish">
 
             <label>Favorite Drink</label>
-            <input type="text" placeholder="Spicy Margarita">
+            <input type="text" placeholder="Spicy Margarita" [(ngModel)]="favoriteDrink" name="favoriteDrink">
 
             <label>Creator Note</label>
-
-            <textarea placeholder="Why do you recommend this place?"></textarea>
+            <textarea placeholder="Why do you recommend this place?" [(ngModel)]="creatorNote"
+                name="creatorNote"></textarea>
 
             <label>Vibe Tags</label>
-
             <input type="text" placeholder="Date Night, Cocktails, Sunset">
 
-            <button type="button">
-                Add Place
-            </button>
-
+            <button type="button" (click)="addPlace()">Add Place</button>
         </form>
     </section>
+
+    <section class="section">
+        <h2>My Places</h2>
+
+        @for (place of places; track place.name) {
+        <div class="place-card">
+            <h3>{{ place.name }}</h3>
+
+            <p>Favorite Dish: {{ place.dish }}</p>
+
+            <p>Favorite Drink: {{ place.drink }}</p>
+        </div>
+        }
+    </section>
+
     <section class="section">
         <h2>My Guides</h2>
 
+        @for (guide of guides; track guide.title) {
         <div class="guide-card">
-            <div class="guide-cover">❤️</div>
-            <div>
-                <h3>Best Date Nights in Phoenix</h3>
-                <p class="guide-meta">Ranked guide • 2 places • 248 saves • 94 likes</p>
-            </div>
-        </div>
+            <div class="guide-cover">{{ guide.icon }}</div>
 
-        <div class="guide-card">
-            <div class="guide-cover">🔥</div>
             <div>
-                <h3>Hidden Gems</h3>
-                <p class="guide-meta">Unranked guide • 5 places • 112 saves • 40 likes</p>
+                <h3>{{ guide.title }}</h3>
+                <p class="guide-meta">
+                    {{ guide.type }} • {{ guide.places }} Places • {{ guide.saves }} Saves • {{ guide.likes }} Likes
+                </p>
             </div>
         </div>
+        }
     </section>
 </main>
