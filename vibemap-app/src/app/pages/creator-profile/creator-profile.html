@@ -1,38 +1,112 @@
 <main class="page">
+
     <section class="profile-card">
+
         <div class="avatar large">AG</div>
 
         <h1>Andres Galindo</h1>
+
         <p class="username">@andres</p>
 
-        <p>🍸 Rooftop Bartender • 🌵 Phoenix Local</p>
-        <p>I help people find the best food, drinks, date nights, and hidden gems in Arizona.</p>
+        <p>
+            🍸 Rooftop Bartender • 🌵 Phoenix Local
+        </p>
+
+        <p>
+            I help travelers discover the best food, drinks,
+            date nights, and hidden gems around Arizona.
+        </p>
 
         <div class="stats">
-            <span><strong>1,248</strong> Followers</span>
-            <span><strong>220</strong> Following</span>
-            <span><strong>8</strong> Guides</span>
+
+            <div>
+                <strong>1,248</strong>
+                <p>Followers</p>
+            </div>
+
+            <div>
+                <strong>220</strong>
+                <p>Following</p>
+            </div>
+
+            <div>
+                <strong>8</strong>
+                <p>Guides</p>
+            </div>
+
         </div>
 
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-            <a href="#">Website</a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                TikTok
+            </a>
+
+            <a href="#">
+                Website
+            </a>
+
         </div>
 
-        <button>Follow</button>
-        <button>Share QR</button>
+        <div class="profile-buttons">
+
+            <button>
+                Follow
+            </button>
+
+            <button>
+                Share Profile
+            </button>
+
+            <button>
+                QR Code
+            </button>
+
+        </div>
+
     </section>
 
     <section class="section">
-        <h2>Guides</h2>
+
+        <h2>My Guides</h2>
 
         <a routerLink="/g/date-nights" class="guide-card">
+
             <div class="guide-cover">❤️</div>
+
             <div>
                 <h3>Best Date Nights</h3>
-                <p>Ranked guide • 12 places • 248 saves</p>
+                <p class="guide-meta">12 Places • 248 Saves • 94 Likes</p>
             </div>
+
         </a>
+
+        <a routerLink="/g/hidden-gems" class="guide-card">
+
+            <div class="guide-cover">🔥</div>
+
+            <div>
+                <h3>Hidden Gems</h3>
+                <p class="guide-meta">8 Places • 112 Saves • 40 Likes</p>
+            </div>
+
+        </a>
+
+        <a routerLink="/g/asian-food" class="guide-card">
+
+            <div class="guide-cover">🍜</div>
+
+            <div>
+                <h3>Best Asian Food</h3>
+                <p class="guide-meta">14 Places • 380 Saves • 162 Likes</p>
+            </div>
+
+        </a>
+
     </section>
+
 </main>

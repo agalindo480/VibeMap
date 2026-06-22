@@ -128,3 +128,132 @@ button {
     color: #ff7a59;
     font-weight: bold;
 }
+
+.form-card {
+    display: grid;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .06);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-nav a {
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.api-box,
+.place-result {
+    padding: 18px;
+    border-radius: 20px;
+    background: #fff7ed;
+    margin-bottom: 18px;
+}
+
+.place-result {
+    background: white;
+    border: 1px solid #f3d5c4;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 20px 0;
+}
+
+.stats p {
+    margin: 4px 0;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    font-size: 16px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.category-grid button {
+    background: #fff7ed;
+    color: #1f2937;
+}
+
+.guide-card,
+.creator-card,
+.place-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guide-card:hover,
+.creator-card:hover,
+.place-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, .12);
+}
+
+.guide-card h3,
+.creator-card h3,
+.place-card h3 {
+    margin: 0 0 6px;
+}
+
+.guide-card p,
+.creator-card p,
+.place-card p {
+    margin: 4px 0;
+}
+
+.guide-meta {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.empty-note {
+    padding: 18px;
+    border-radius: 20px;
+    background: #fff7ed;
+    color: #6b7280;
+}

@@ -1,8 +1,24 @@
 <main class="page">
+
     <section class="hero">
         <p class="eyebrow">Explore VibeMap</p>
-        <h1>Discover cities through people you trust.</h1>
-        <p>Find creator-made guides for food, drinks, date nights, and hidden gems.</p>
+        <h1>Find guides from people you trust.</h1>
+        <p>Search food, drinks, date nights, hidden gems, and local favorites.</p>
+
+        <input class="search-bar" type="text" placeholder="Search Phoenix, date night, ramen, cocktails...">
+    </section>
+
+    <section class="section">
+        <h2>Popular Categories</h2>
+
+        <div class="category-grid">
+            <button>❤️ Date Night</button>
+            <button>🍜 Asian Food</button>
+            <button>🍸 Cocktails</button>
+            <button>🔥 Hidden Gems</button>
+            <button>☕ Coffee</button>
+            <button>🌅 Rooftops</button>
+        </div>
     </section>
 
     <section class="section">
@@ -12,7 +28,15 @@
             <div class="guide-cover">❤️</div>
             <div>
                 <h3>Best Date Nights in Phoenix</h3>
-                <p>12 places • 248 saves • 94 likes</p>
+                <p class="guide-meta">12 Places • 248 Saves • 94 Likes</p>
+            </div>
+        </a>
+
+        <a routerLink="/g/asian-food" class="guide-card">
+            <div class="guide-cover">🍜</div>
+            <div>
+                <h3>Best Asian Food in Tempe</h3>
+                <p class="guide-meta">14 Places • 380 Saves • 162 Likes</p>
             </div>
         </a>
     </section>
@@ -25,8 +49,8 @@
             <div>
                 <h3>Andres Galindo</h3>
                 <p>@andres • Rooftop Bartender • Phoenix Local</p>
-                <p>Food, drinks, date nights, and hidden gems.</p>
             </div>
         </a>
     </section>
+
 </main>

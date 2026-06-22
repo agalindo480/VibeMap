@@ -1,1 +1,131 @@
-<p>dashboard works!</p>
+<main class="page">
+    <section class="hero">
+        <p class="eyebrow">Creator Dashboard</p>
+        <h1>Build your VibeMap profile</h1>
+        <p>Create guides, add places, and share your recommendations.</p>
+    </section>
+    <section class="section">
+        <h2>Edit Creator Profile</h2>
+
+        <form class="form-card">
+
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+
+            <label>Username</label>
+            <input type="text" placeholder="yourusername">
+
+            <label>City</label>
+            <input type="text" placeholder="Phoenix, AZ">
+
+            <label>Bio</label>
+            <textarea placeholder="Tell people what kind of recommendations you share."></textarea>
+
+            <label>Instagram Link</label>
+            <input type="text" placeholder="https://instagram.com/yourname">
+
+            <label>TikTok Link</label>
+            <input type="text" placeholder="https://tiktok.com/@yourname">
+
+            <label>Website Link</label>
+            <input type="text" placeholder="https://yourwebsite.com">
+
+            <label>Profile Photo</label>
+            <input type="file">
+
+            <button type="button">
+                Save Profile
+            </button>
+
+        </form>
+    </section>
+    <section class="section">
+        <h2>Create New Guide</h2>
+
+        <form class="form-card">
+            <label>Guide Title</label>
+            <input type="text" placeholder="Best Date Nights in Phoenix">
+
+            <label>Description</label>
+            <textarea placeholder="My favorite spots for a fun night out."></textarea>
+
+            <label>Guide Type</label>
+            <select>
+                <option>Ranked Guide</option>
+                <option>Unranked Guide</option>
+            </select>
+
+            <label>Cover Image</label>
+            <input type="file">
+
+            <button type="button">Create Guide</button>
+        </form>
+    </section>
+
+    <section class="section">
+        <h2>Add Place to Guide</h2>
+
+        <div class="api-box">
+            <p class="eyebrow">Google Places API Search</p>
+
+            <input type="text" placeholder="Search restaurant, bar, coffee shop, activity...">
+
+            <div class="place-result">
+                <h3>Ghost Ranch</h3>
+                <p>Tempe, AZ • Restaurant • 4.6 ★</p>
+
+                <button type="button">
+                    Select Place
+                </button>
+            </div>
+        </div>
+
+        <form class="form-card">
+
+            <label>Add to Guide</label>
+
+            <select>
+                <option>Best Date Nights in Phoenix</option>
+                <option>Hidden Gems</option>
+            </select>
+
+            <label>Favorite Dish</label>
+            <input type="text" placeholder="Short Rib Tacos">
+
+            <label>Favorite Drink</label>
+            <input type="text" placeholder="Spicy Margarita">
+
+            <label>Creator Note</label>
+
+            <textarea placeholder="Why do you recommend this place?"></textarea>
+
+            <label>Vibe Tags</label>
+
+            <input type="text" placeholder="Date Night, Cocktails, Sunset">
+
+            <button type="button">
+                Add Place
+            </button>
+
+        </form>
+    </section>
+    <section class="section">
+        <h2>My Guides</h2>
+
+        <div class="guide-card">
+            <div class="guide-cover">❤️</div>
+            <div>
+                <h3>Best Date Nights in Phoenix</h3>
+                <p class="guide-meta">Ranked guide • 2 places • 248 saves • 94 likes</p>
+            </div>
+        </div>
+
+        <div class="guide-card">
+            <div class="guide-cover">🔥</div>
+            <div>
+                <h3>Hidden Gems</h3>
+                <p class="guide-meta">Unranked guide • 5 places • 112 saves • 40 likes</p>
+            </div>
+        </div>
+    </section>
+</main>
