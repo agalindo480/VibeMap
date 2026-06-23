@@ -1,3 +1,4 @@
+import { supabase } from '../../supabase';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -50,10 +51,28 @@ export class Dashboard {
     },
   ];
 
-  createGuide() {
+  async createGuide() {
     if (!this.guideTitle.trim()) {
       return;
     }
+
+    const { data, error } = await supabase
+      .from('guides')
+      .insert([
+        {
+          title: this.guideTitle,
+          description: this.guideDescription,
+          guide_type: this.guideType,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    console.log('Guide Saved:', data);
 
     this.guides.push({
       icon: '🗺️',
