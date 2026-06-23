@@ -94,6 +94,10 @@ export class Dashboard {
   }
 
   async addPlace() {
+    const selectedGuide = this.guides.find(
+      guide => guide.title === this.selectedGuideTitle
+    );
+
     const { data, error } = await supabase
       .from('places')
       .insert([
@@ -102,6 +106,7 @@ export class Dashboard {
           favorite_dish: this.favoriteDish,
           favorite_drink: this.favoriteDrink,
           creator_note: this.creatorNote,
+          vibe_tags: this.selectedGuideTitle,
         },
       ])
       .select();
@@ -118,6 +123,10 @@ export class Dashboard {
       dish: this.favoriteDish,
       drink: this.favoriteDrink,
     });
+
+    if (selectedGuide) {
+      selectedGuide.places++;
+    }
 
     this.favoriteDish = '';
     this.favoriteDrink = '';
