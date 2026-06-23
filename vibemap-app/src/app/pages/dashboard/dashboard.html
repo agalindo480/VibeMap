@@ -88,9 +88,16 @@
         <form class="form-card">
             <label>Add to Guide</label>
 
-            <select>
-                <option>Best Date Nights in Phoenix</option>
-                <option>Hidden Gems</option>
+            <label>Add to Guide</label>
+
+            <select [(ngModel)]="selectedGuideTitle" name="selectedGuideTitle">
+
+                @for (guide of guides; track guide.title) {
+                <option [value]="guide.title">
+                    {{ guide.title }}
+                </option>
+                }
+
             </select>
 
             <label>Favorite Dish</label>

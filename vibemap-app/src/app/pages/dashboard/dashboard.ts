@@ -12,6 +12,7 @@ export class Dashboard {
   guideTitle = '';
   guideDescription = '';
   guideType = 'Ranked Guide';
+  selectedGuideTitle = '';
 
   selectedPlaceName = 'Ghost Ranch';
   favoriteDish = '';
@@ -92,7 +93,26 @@ export class Dashboard {
     this.selectedPlaceName = placeName;
   }
 
-  addPlace() {
+  async addPlace() {
+    const { data, error } = await supabase
+      .from('places')
+      .insert([
+        {
+          place_name: this.selectedPlaceName,
+          favorite_dish: this.favoriteDish,
+          favorite_drink: this.favoriteDrink,
+          creator_note: this.creatorNote,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    console.log('Place Saved:', data);
+
     this.places.push({
       name: this.selectedPlaceName,
       dish: this.favoriteDish,
