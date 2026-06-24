@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './creator-profile.html',
   styleUrl: './creator-profile.css',
 })
-export class CreatorProfile {}
+export class CreatorProfile { }
