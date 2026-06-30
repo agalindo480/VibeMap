@@ -1,12 +1,14 @@
 <main class="page">
 
+    @if (guide) {
+
     <section class="guide-header">
 
-        <div class="cover">❤️</div>
+        <div class="cover">🗺️</div>
 
-        <p class="eyebrow">Ranked Guide</p>
+        <p class="eyebrow">{{ guide.guide_type }}</p>
 
-        <h1>Best Date Nights in Phoenix</h1>
+        <h1>{{ guide.title }}</h1>
 
         <p>
             Curated by
@@ -14,8 +16,7 @@
         </p>
 
         <p>
-            My favorite places for a fun, stylish,
-            romantic night out.
+            {{ guide.description }}
         </p>
 
         <div class="guide-actions">
@@ -31,7 +32,9 @@
         </div>
 
         <p class="small-text">
-            {{ saves }} Saves • {{ likes }} Likes • {{ comments.length }} Comments
+            {{ guide.saves_count }} Saves •
+            {{ guide.likes_count }} Likes •
+            {{ comments.length }} Comments
         </p>
 
     </section>
@@ -40,35 +43,40 @@
 
         <h2>Places</h2>
 
-        <a routerLink="/p/ghost-ranch" class="place-card">
+        <p class="guide-meta">
+            (Next we'll load the real places for this guide from Supabase.)
+        </p>
 
-            <h3>1. Ghost Ranch</h3>
+        @if (places.length === 0) {
+
+        <div class="place-card">
+            <h3>No places yet</h3>
+            <p>Add places from your Dashboard.</p>
+        </div>
+
+        }
+
+        @for (place of places; track place.id) {
+
+        <a routerLink="/p/{{ place.id }}" class="place-card">
+
+            <h3>{{ place.place_name }}</h3>
 
             <p>
-                ❤️ Date Night • 🌅 Sunset • 🍸 Cocktails
+                🍽️ {{ place.favorite_dish }}
             </p>
 
             <p>
-                <strong>Order:</strong>
-                Short Rib Tacos + Spicy Margarita
+                🍸 {{ place.favorite_drink }}
+            </p>
+
+            <p>
+                {{ place.creator_note }}
             </p>
 
         </a>
 
-        <a routerLink="/p/top-of-the-rock" class="place-card">
-
-            <h3>2. Top of the Rock</h3>
-
-            <p>
-                🌅 Views • ❤️ Date Night • 🍷 Wine
-            </p>
-
-            <p>
-                <strong>Tip:</strong>
-                Go around sunset for the best views.
-            </p>
-
-        </a>
+        }
 
     </section>
 
@@ -80,13 +88,9 @@
 
         <div class="comment">
 
-            <strong>
-                {{ comment.username }}
-            </strong>
+            <strong>{{ comment.username }}</strong>
 
-            <p>
-                {{ comment.text }}
-            </p>
+            <p>{{ comment.text }}</p>
 
         </div>
 
@@ -94,9 +98,7 @@
 
         <form class="form-card">
 
-            <label>
-                Add a Comment
-            </label>
+            <label>Add a Comment</label>
 
             <textarea [(ngModel)]="newComment" name="newComment" placeholder="Share your thoughts about this guide...">
             </textarea>
@@ -110,5 +112,15 @@
         </form>
 
     </section>
+
+    } @else {
+
+    <section class="hero">
+
+        <h1>Loading Guide...</h1>
+
+    </section>
+
+    }
 
 </main>

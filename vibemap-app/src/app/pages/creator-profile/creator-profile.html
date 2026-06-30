@@ -70,43 +70,28 @@
 
     </section>
 
+
     <section class="section">
 
         <h2>My Guides</h2>
 
-        <a routerLink="/g/date-nights" class="guide-card">
+        @for (guide of guides; track guide.id) {
+        <a [routerLink]="['/g', guide.id]" class="guide-card">
 
-            <div class="guide-cover">❤️</div>
+            <div class="guide-cover">🗺️</div>
 
             <div>
-                <h3>Best Date Nights</h3>
-                <p class="guide-meta">12 Places • 248 Saves • 94 Likes</p>
+                <h3>{{ guide.title }}</h3>
+
+                <p class="guide-meta">
+                    {{ guide.guide_type }} • {{ guide.saves_count }} Saves • {{ guide.likes_count }} Likes
+                </p>
             </div>
 
         </a>
-
-        <a routerLink="/g/hidden-gems" class="guide-card">
-
-            <div class="guide-cover">🔥</div>
-
-            <div>
-                <h3>Hidden Gems</h3>
-                <p class="guide-meta">8 Places • 112 Saves • 40 Likes</p>
-            </div>
-
-        </a>
-
-        <a routerLink="/g/asian-food" class="guide-card">
-
-            <div class="guide-cover">🍜</div>
-
-            <div>
-                <h3>Best Asian Food</h3>
-                <p class="guide-meta">14 Places • 380 Saves • 162 Likes</p>
-            </div>
-
-        </a>
+        }
 
     </section>
+
 
 </main>
